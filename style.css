@@ -1,0 +1,144 @@
+:root {
+    --primario: #f39c12; /* Naranja Construcción */
+    --oscuro: #2c3e50;
+    --gris-fondo: #f4f7f6;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gris-fondo);
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Navegación */
+.navbar {
+    background: var(--oscuro);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
+.logo span {
+    color: var(--primario);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.btn-principal {
+    display: inline-block;
+    background: var(--primario);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+}
+
+/* Servicios */
+.servicios {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tarjeta {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 5px solid var(--primario);
+}
+
+/* Formulario */
+.contacto-seccion {
+    background: var(--oscuro);
+    color: var(--blanco);
+    padding: 5rem 10%;
+}
+
+.contenedor-formulario {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 150px;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primario);
+    border: none;
+    color: var(--blanco);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+footer {
+    background: #1a252f;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 2rem;
+}
