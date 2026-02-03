@@ -95,6 +95,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-top: 5px solid var(--primario);
+    min-height: 380px; /* Esto hace que todas midan lo mismo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Formulario */
@@ -187,4 +191,182 @@ footer {
     border-radius: 10px;
     flex-shrink: 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* Contenedor para asegurar el ancho total */
+.contenedor-destacado {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+/* Forzamos que esta tarjeta no se comporte como las de la grilla */
+.tarjeta-destacada {
+    width: 100% !important; 
+    max-width: 100% !important;
+    min-height: auto !important; /* Quitamos el alto mínimo de las otras */
+    display: block !important;
+    padding: 0 !important;
+}
+
+.contenido-destacado {
+    display: flex;
+    flex-direction: row; /* Imagen a un lado, texto al otro */
+    width: 100%;
+}
+
+.info-destacada {
+    flex: 1.5; /* El texto ocupa un poco más */
+    padding: 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imagen-destacada {
+    flex: 1;
+    min-height: 300px;
+    background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsivo: Si la pantalla es chica, se pone una cosa arriba de la otra */
+@media (max-width: 768px) {
+    .contenido-destacado {
+        flex-direction: column;
+    }
+    .imagen-destacada {
+        height: 200px;
+        order: 1; /* Imagen arriba */
+    }
+    .info-destacada {
+        order: 2; /* Texto abajo */
+        padding: 1.5rem;
+    }
+}
+.info-destacada h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--oscuro);
+}
+
+.imagen-destacada {
+    flex: 1;
+    min-width: 300px;
+    height: 250px;
+    background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-secundario {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #2ecc71;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .contenido-destacado {
+        flex-direction: column;
+    }
+    .info-destacada {
+        order: 2;
+    }
+    .imagen-destacada {
+        width: 100%;
+        order: 1;
+    }
+}
+.seccion-servicios {
+    padding: 60px 5%;
+    background-color: #f9f9f9;
+}
+
+.contenedor-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* LA CLAVE: El bloque horizontal */
+.bloque-destacado-full {
+    width: 100%;
+    max-width: 1100px; /* Ancho máximo para que no se estire infinito */
+    margin: 0 auto 40px auto;
+}
+
+.enlace-especial {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tarjeta-horizontal {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-left: 8px solid #2ecc71; /* Verde Concrehaus */
+    transition: 0.3s;
+}
+
+.tarjeta-horizontal:hover {
+    transform: scale(1.01);
+}
+
+.texto-horizontal {
+    flex: 1.5;
+    padding: 40px;
+}
+
+.imagen-horizontal {
+    flex: 0.8; /* Bajamos de 1 a 0.8 para que la foto ocupe menos ancho que el texto */
+    background-image: url('./eps.jpg'); 
+    background-size: contain; /* CAMBIO CLAVE: 'contain' muestra la foto entera sin cortarla */
+    background-repeat: no-repeat; /* Evita que la foto se repita si es chica */
+    background-position: center;
+    min-height: 200px; /* Bajamos un poco la altura */
+    margin: 10px; /* Le da un aire alrededor a la foto */
+}
+
+
+/* LA GRILLA DE 3 */
+.contenedor-grilla-tres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tarjeta-chica {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 4px solid var(--primario);
+}
+
+.portada-chica {
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-size: cover;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .tarjeta-horizontal {
+        flex-direction: column;
+    }
+    .imagen-horizontal {
+        height: 200px;
+        order: -1; /* Imagen arriba en el celu */
+    }
 }
