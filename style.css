@@ -1,19 +1,16 @@
-/* --- VARIABLES Y RESET --- */
-:root {
-    --naranja: #e67e22;
-    --oscuro: #1a1a1a;
-    --blanco: #ffffff;
-}
-
+/* --- RESET Y BASE --- */
+* { box-sizing: border-box; }
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    /* MARCA DE AGUA EN TODA LA WEB */
-    background-image: linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)), url('logo-fondo.png');
+    color: #333;
+    line-height: 1.6;
+    /* MARCA DE AGUA */
+    background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('logo-fondo.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 30%;
 }
 
 /* --- HERO SECTION --- */
@@ -25,132 +22,106 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
+    color: white;
 }
 
 .hjm-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 5rem;
+    font-size: clamp(3rem, 8vw, 6rem); /* Tamaño fluido gigante */
     font-weight: 900;
+    line-height: 0.9;
     margin: 0;
-    line-height: 0.8;
 }
 
 .hjm-title span {
     display: block;
-    font-size: 3.5rem;
+    color: #e67e22; /* Naranja HJM */
+    font-size: 0.7em;
     font-weight: 300;
-    color: var(--naranja);
-    letter-spacing: 8px;
-    margin-top: 10px;
+    letter-spacing: 10px;
 }
 
 .divider {
-    width: 100px;
+    width: 80px;
     height: 4px;
-    background: var(--naranja);
-    margin: 30px auto;
+    background: #e67e22;
+    margin: 20px auto;
 }
 
 .hjm-tagline {
     font-size: 1.2rem;
-    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    letter-spacing: 2px;
 }
 
-/* --- BOTÓN PEDIR PRESUPUESTO (HERO) --- */
 .btn-presupuesto {
     display: inline-block;
-    padding: 18px 40px;
-    border: 2px solid var(--naranja);
+    margin-top: 30px;
+    padding: 15px 40px;
+    border: 2px solid #e67e22;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
     transition: 0.3s;
 }
 
 .btn-presupuesto:hover {
-    background: var(--naranja);
-    box-shadow: 0 0 20px rgba(230, 126, 34, 0.5);
+    background: #e67e22;
 }
 
 /* --- SERVICIOS --- */
 .seccion-servicios { padding: 80px 5%; text-align: center; }
-
 .tarjeta-horizontal {
     display: flex;
     background: white;
-    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 40px 0;
 }
-
 .texto-horizontal { padding: 40px; flex: 1; text-align: left; }
-.imagen-horizontal { 
-    flex: 1; 
-    background-image: url('https://images.unsplash.com/photo-1590059132218-22ca52101423?w=600'); 
-    background-size: cover; 
-}
+.imagen-horizontal { flex: 1; background: #ddd; min-height: 250px; }
 
 .contenedor-grilla-tres {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-
 .tarjeta-chica {
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     text-decoration: none;
-    color: var(--oscuro);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
+.portada-chica { height: 180px; background: #eee; margin-bottom: 15px; border-radius: 5px; }
 
-.portada-chica { height: 200px; background-color: #ddd; background-size: cover; border-radius: 5px; }
-
-/* --- CONTACTO --- */
+/* --- CONTACTO Y FORM --- */
 .contacto-seccion { padding: 80px 5%; background: rgba(255,255,255,0.8); }
 .contenedor-formulario { max-width: 600px; margin: 0 auto; }
-.grupo-input { margin-bottom: 20px; text-align: left; }
-.grupo-input label { display: block; font-weight: bold; margin-bottom: 5px; }
-.grupo-input input, .grupo-input textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
-
-.btn-principal-form {
-    width: 100%;
-    background: var(--naranja);
-    color: white;
-    padding: 15px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+.grupo-input { margin-bottom: 15px; text-align: left; }
+.grupo-input label { display: block; font-weight: bold; }
+.grupo-input input, .grupo-input textarea {
+    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px;
+}
+.btn-enviar {
+    width: 100%; background: #e67e22; color: white; border: none;
+    padding: 15px; font-weight: bold; cursor: pointer;
 }
 
-/* --- WHATSAPP FLOTANTE --- */
+/* --- WHATSAPP --- */
 .boton-wp-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: fixed; bottom: 20px; right: 20px;
+    width: 60px; height: 60px; background: #25d366;
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; z-index: 1000;
 }
-
 .boton-wp-flotante img { width: 35px; }
 
-/* --- RESPONSIVE --- */
+footer { padding: 40px; text-align: center; background: #1a1a1a; color: white; }
+
 @media (max-width: 768px) {
-    .hjm-title { font-size: 3rem; }
-    .hjm-title span { font-size: 2rem; }
     .tarjeta-horizontal { flex-direction: column; }
 }
