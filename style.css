@@ -500,3 +500,113 @@ footer {
     background-attachment: fixed; /* Esto hace que el logo se quede quieto al bajar */
     background-color: #f4f4f4; /* Color de respaldo */
 }
+/* Sección Hero (Inicio) */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('tu-imagen-de-obra.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+/* El nombre en grande */
+.titulo-gigante {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5.5rem; /* Muy grande */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px; /* Letras más juntas para que se vea compacto */
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px var(--primario); /* Sombra naranja que le da estilo */
+}
+
+.subtitulo-hero {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #f4f4f4;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .titulo-gigante {
+        font-size: 3rem;
+        letter-spacing: -1px;
+    }
+    .subtitulo-hero {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    body {
+    /* Esto pone el logo como marca de agua suave en toda la página */
+    background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('logo-fondo.png');
+    background-attachment: fixed;
+    background-size: 50%; /* Tamaño de la marca de agua */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Fondo oscuro para que el texto blanco resalte al inicio */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-foto-de-obra.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+.titulo-gigante {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
+}
+}
+body {
+    /* Esto pone el logo como marca de agua suave en toda la página */
+    background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('logo-fondo.png');
+    background-attachment: fixed;
+    background-size: 50%; /* Tamaño de la marca de agua */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Fondo oscuro para que el texto blanco resalte al inicio */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-foto-de-obra.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+.titulo-gigante {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
+}
