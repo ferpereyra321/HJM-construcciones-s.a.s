@@ -667,3 +667,7 @@ body {
     .hjm-title { font-size: 3rem; }
     .hjm-title span { font-size: 2rem; letter-spacing: 5px; }
 }
+/* Esto hace que todas las secciones sean transparentes para ver el fondo */
+section, div, header {
+    background-color: transparent !important;
+}
