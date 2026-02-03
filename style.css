@@ -586,69 +586,77 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
-
+/* Sección Principal */
 .hero {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Fondo oscuro para que el texto blanco resalte al inicio */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-foto-de-obra.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('tu-foto-de-obra.jpg');
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
 }
 
-.titulo-gigante {
-    font-family: 'Montserrat', sans-serif;
+/* Título Estilizado */
+.hjm-title {
     font-size: 5rem;
-    font-weight: 900;
-    line-height: 0.9;
-    text-transform: uppercase;
+    font-weight: 800;
     margin: 0;
-    text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
-}
-/* El contenedor principal */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('tu-foto-de-fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-}
-
-/* El nombre de la empresa en grande */
-.titulo-gigante {
-    font-size: 5.5rem; /* Tamaño extra grande */
-    font-weight: 900;
-    line-height: 0.9;
+    letter-spacing: -2px;
+    line-height: 1;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    color: #e67e22; /* El naranja de HJM */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para que se lea bien */
 }
 
-/* El eslogan */
-.subtitulo-hero {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    color: #ffffff;
+.hjm-title span {
+    display: block;
+    color: #e67e22; /* El naranja HJM */
+    font-size: 4rem;
+    font-weight: 300; /* Más fino para contraste */
+    letter-spacing: 10px;
+    margin-top: 5px;
 }
 
-/* Ajuste para que en el celular no se rompa el texto */
+/* Línea decorativa naranja */
+.divider {
+    width: 80px;
+    height: 4px;
+    background-color: #e67e22;
+    margin: 25px auto;
+}
+
+/* Eslogan */
+.hjm-tagline {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Botón más moderno */
+.btn-presupuesto {
+    padding: 15px 35px;
+    background-color: transparent;
+    border: 2px solid #e67e22;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-presupuesto:hover {
+    background-color: #e67e22;
+    color: white;
+    box-shadow: 0 0 20px rgba(230, 126, 34, 0.4);
+}
+
+/* Ajuste para celulares */
 @media (max-width: 768px) {
-    .titulo-gigante {
-        font-size: 3rem;
-    }
-    .subtitulo-hero {
-        font-size: 1.2rem;
-    }
+    .hjm-title { font-size: 3rem; }
+    .hjm-title span { font-size: 2rem; letter-spacing: 5px; }
 }
+
