@@ -547,7 +547,7 @@ footer {
     }
     body {
     /* Esto pone el logo como marca de agua suave en toda la página */
-    background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('logo-fondo.png');
+    background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('logo.png');
     background-attachment: fixed;
     background-size: 50%; /* Tamaño de la marca de agua */
     background-position: center;
@@ -586,8 +586,7 @@ body {
     
     /* LA MARCA DE AGUA */
     /* El primer rgba (255,255,255,0.95) es un blanco casi opaco para que el logo se vea muy suave */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
-                      url('logo.png'); 
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('logo.png'); 
                       
     background-attachment: fixed; /* Para que el logo no se mueva al hacer scroll */
     background-position: center;  /* Centrado en la pantalla */
