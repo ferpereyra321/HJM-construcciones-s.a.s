@@ -484,3 +484,19 @@ footer {
     transform: scale(1.1);
     background-color: #1ebea5 !important;
 }
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* Aquí configuramos la imagen de fondo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('logo.png');
+    background-size: contain; /* Para que el logo se vea completo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto hace que el logo se quede quieto al bajar */
+    background-color: #f4f4f4; /* Color de respaldo */
+}
