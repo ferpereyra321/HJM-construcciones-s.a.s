@@ -610,3 +610,45 @@ body {
     margin: 0;
     text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
 }
+/* El contenedor principal */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('tu-foto-de-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* El nombre de la empresa en grande */
+.titulo-gigante {
+    font-size: 5.5rem; /* Tamaño extra grande */
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #e67e22; /* El naranja de HJM */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para que se lea bien */
+}
+
+/* El eslogan */
+.subtitulo-hero {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Ajuste para que en el celular no se rompa el texto */
+@media (max-width: 768px) {
+    .titulo-gigante {
+        font-size: 3rem;
+    }
+    .subtitulo-hero {
+        font-size: 1.2rem;
+    }
+}
