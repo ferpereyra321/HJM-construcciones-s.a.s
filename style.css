@@ -370,3 +370,56 @@ footer {
         order: -1; /* Imagen arriba en el celu */
     }
 }
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.grupo-input {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--oscuro);
+}
+
+.grupo-input input, 
+.grupo-input textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+    border-color: var(--primario);
+    outline: none;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+}
+
+.btn-principal {
+    width: 100%;
+    background-color: #e67e22; /* El naranja de HJM */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #d35400;
+}
