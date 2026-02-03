@@ -484,22 +484,38 @@ footer {
     transform: scale(1.1);
     background-color: #1ebea5 !important;
 }
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    /* Aquí configuramos la imagen de fondo */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('logo.png');
-    background-size: contain; /* Para que el logo se vea completo */
+/* CONFIGURACIÓN DEL FONDO GENERAL */
+body {
+    margin: 0;
+    padding: 0;
+    /* Esto pone el logo fijo en el fondo de toda la web */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), 
+                      url('logo.png') !important;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Esto hace que el logo se quede quieto al bajar */
-    background-color: #f4f4f4; /* Color de respaldo */
+    background-size: 450px; /* Tamaño de la marca de agua */
+    background-color: white;
 }
+
+/* SECCIÓN PRINCIPAL (EL GRIS) */
+.hero {
+    height: 100vh;
+    /* Cambiamos el gris sólido por un gris con transparencia (el 0.8 al final) */
+    background-color: rgba(44, 62, 80, 0.8) !important; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* OTRAS SECCIONES */
+section {
+    /* Hacemos que todas las demás secciones sean transparentes para ver el logo */
+    background-color: transparent !important;
+}
+
 /* Sección Hero (Inicio) */
 .hero {
     height: 100vh;
@@ -686,17 +702,3 @@ body {
     background-size: 400px;
 }
 
-/* 2. IMPORTANTE: Tu sección Hero es gris sólida. 
-      Hay que darle un poco de transparencia para que se vea el logo atrás */
-.hero {
-    /* Cambiá el background que tengas por este con transparencia (0.8) */
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), 
-                url('tu-foto-de-obra.jpg') !important;
-    background-size: cover;
-    background-position: center;
-}
-
-/* 3. El resto de las secciones deben ser transparentes */
-section {
-    background-color: transparent !important;
-}
