@@ -142,3 +142,49 @@ footer {
     text-align: center;
     padding: 2rem;
 }
+/* Estilos para las tarjetas con imagen */
+.tarjeta-link {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
+}
+
+.tarjeta-link:hover {
+    transform: translateY(-10px);
+}
+
+.portada-servicio {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Fotos de ejemplo para las portadas */
+.civil { background-image: url('https://images.unsplash.com/photo-1503387762-592dea58ef21?auto=format&fit=crop&w=400&q=80'); }
+.fundaciones { background-image: url('https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?auto=format&fit=crop&w=400&q=80'); }
+.vial { background-image: url('https://images.unsplash.com/photo-1584463653139-49766946059d?auto=format&fit=crop&w=400&q=80'); }
+
+/* Estilo para el Carrusel */
+.detalle-servicio {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 2rem 0;
+    scrollbar-width: thin;
+}
+
+.carrusel img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
