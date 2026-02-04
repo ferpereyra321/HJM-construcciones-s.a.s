@@ -1,3 +1,42 @@
+/* RESET GENERAL */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #d1d5d8 !important; /* El gris que elegiste */
+}
+
+/* LA CAPA DEL LOGO */
+body::before {
+    content: "";
+    position: fixed; /* Lo fija a la pantalla, no a la página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Lo manda atrás de todo el texto */
+    
+    /* LA IMAGEN */
+    background-image: url('logo.png') !important;
+    background-repeat: no-repeat;
+    background-position: center 30%; /* Lo sube un poco para que no lo tape todo */
+    
+    /* AJUSTE PARA PC */
+    background-size: 600px; 
+    
+    /* LA TRANSPARENCIA (0.1 es muy transparente, 1.0 es sólido) */
+    opacity: 0.2; 
+}
+
+/* AJUSTE PARA CELULARES (Aquí lo hacemos gigante) */
+@media (max-width: 768px) {
+    body::before {
+        /* En el celu obligamos a que el logo ocupe casi todo el ancho */
+        background-size: 90% auto !important;
+        background-position: center 25% !important;
+        opacity: 0.3; /* Un poquito más fuerte en el celu */
+    }
+}
 :root {
     --primario: #f39c12; /* Naranja Construcción */
     --oscuro: #2c3e50;
