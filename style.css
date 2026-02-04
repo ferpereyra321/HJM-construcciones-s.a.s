@@ -755,11 +755,5 @@ body::before {
     height: 100%;
     z-index: 1000; /* Lo ponemos AL FRENTE de todo para verlo */
     pointer-events: none; /* Para que puedas hacer click a través del logo */
-    
-    /* PROBAMOS CON UN LOGO DE INTERNET */
-    background-image: url('https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png') !important;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 300px;
-    opacity: 0.5;
+    background-image: url('logo.png') !important;
 }
