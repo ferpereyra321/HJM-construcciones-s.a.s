@@ -688,42 +688,35 @@ section, div, header {
     background-color: transparent !important;
 }
 /* 1. Configuramos el fondo de toda la página */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff; /* Fondo blanco de base */
-    
-    /* La marca de agua */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), 
-                      url('logo-fondo.png') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 400px;
-}
 
-/* --- FORZAR VISIBILIDAD DE MARCA DE AGUA --- */
+
 
 body {
-    /* Quitamos el degradado blanco momentáneamente para ver si el logo carga */
-    background-image: url('logo-fondo.png') !important; 
-    background-color: #f0f0f0 !important; /* Un gris muy clarito */
+    /* Si esto funciona, verás un logo de Google de fondo */
+    background-image: url('logo.png') !important;
     background-attachment: fixed !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    background-size: 500px !important;
+  background-size: 800px !important;
+    background-color: #f0f0f0 !important; /* Gris claro para notar el cambio */
 }
 
-/* ESTA ES LA CLAVE: 
-   Hacemos que el Hero y todas las secciones sean invisibles 
-   para que el logo del fondo se vea sí o sí */
-.hero, section, .hero-content, main {
+.hero, section {
     background: transparent !important;
     background-color: transparent !important;
 }
-
-/* Para que el texto no se pierda sin el fondo oscuro */
-.hjm-title, .hjm-tagline {
-    color: #333 !important; /* Texto oscuro momentáneo */
-    text-shadow: none !important;
+body {
+    margin: 0;
+    padding: 0;
+    /* Un gris neutro claro profesional */
+    background-color: #25242485 !important; 
+    
+    /* Ajustamos el degradado para que sea grisaceo y deje ver el logo */
+    background-image: linear-gradient(rgba(229, 231, 233, 0.94), rgba(229, 231, 233, 0.94)), 
+                      url('logo.png') !important;
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 800px;
 }
