@@ -305,10 +305,10 @@ footer {
 
 .tarjeta-horizontal {
     display: flex;
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(187, 89, 89, 0.1);
     border-left: 8px solid #2ecc71; /* Verde Concrehaus */
     transition: 0.3s;
 }
@@ -485,18 +485,8 @@ footer {
     background-color: #1ebea5 !important;
 }
 /* CONFIGURACIÓN DEL FONDO GENERAL */
-body {
-    margin: 0;
-    padding: 0;
-    /* Esto pone el logo fijo en el fondo de toda la web */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), 
-                      url('logo.png') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 450px; /* Tamaño de la marca de agua */
-    background-color: white;
-}
+
+
 
 /* SECCIÓN PRINCIPAL (EL GRIS) */
 .hero {
@@ -561,14 +551,7 @@ section {
         font-size: 1rem;
         letter-spacing: 2px;
     }
-    body {
-    /* Esto pone el logo como marca de agua suave en toda la página */
-    background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('logo.png');
-    background-attachment: fixed;
-    background-size: 50%; /* Tamaño de la marca de agua */
-    background-position: center;
-    background-repeat: no-repeat;
-}
+   
 
 .hero {
     height: 100vh;
@@ -594,22 +577,9 @@ section {
     text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
 }
 }
-body {
-   body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    
-    /* LA MARCA DE AGUA */
-    /* El primer rgba (255,255,255,0.95) es un blanco casi opaco para que el logo se vea muy suave */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('logo.png'); 
-                      
-    background-attachment: fixed; /* Para que el logo no se mueva al hacer scroll */
-    background-position: center;  /* Centrado en la pantalla */
-    background-repeat: no-repeat; /* Que no se repita como mosaico */
-    background-size: 400px;       /* Tamaño de la marca de agua (ajustalo a tu gusto) */
-}
-}
+
+
+
 /* Sección Principal */
 .hero {
     height: 100vh;
@@ -708,15 +678,34 @@ body {
 body {
     margin: 0;
     padding: 0;
-    /* Un gris neutro claro profesional */
-    background-color: #25242485 !important; 
+    /* Un gris cemento sólido y profesional */
+    background-color: #d1d5d8 !important; 
     
-    /* Ajustamos el degradado para que sea grisaceo y deje ver el logo */
-    background-image: linear-gradient(rgba(229, 231, 233, 0.94), rgba(229, 231, 233, 0.94)), 
-                      url('logo.png') !important;
-    
+    /* EL LOGO: Sin filtros ni capas blancas para que se vea nítido */
+    background-image: url('logo.png') !important;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 800px;
+    
+    /* TAMAÑO: 85% del ancho de la pantalla para que sea GIGANTE */
+    background-size: 85vw !important; 
+    
+    /* OPACIDAD: Si quieres que se vea al 100%, usa 1. 
+       Si quieres que sea sutil, usa 0.7 o 0.8 */
+    opacity: 1; 
+}
+
+/* IMPORTANTE: Hacer que todas las secciones sean invisibles 
+   para que no tapen el logo del fondo */
+.hero, section, main, .hero-content {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Si tienes texto que se pierde con el logo, 
+   podemos darle un sombreado para que se lea bien */
+.hjm-title {
+    text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
 }
