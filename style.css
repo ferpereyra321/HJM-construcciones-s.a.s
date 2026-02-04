@@ -28,6 +28,42 @@ body {
     background-repeat: no-repeat;
     background-size: cover !important; 
 }
+/* CAPA DE FONDO INDEPENDIENTE */
+body::before {
+    content: "";
+    position: fixed; /* Esto fija el logo de verdad en el celu */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa el alto de la pantalla del celular */
+    z-index: -10; /* Se va al fondo de todo */
+    
+    background-color: #d1d5d8; /* Tu gris */
+    
+    /* El Logo con la transparencia que querías */
+    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
+                      url('logo.png');
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    /* Tamaño para Computadoras */
+    background-size: 600px; 
+}
+
+/* AJUSTE ESPECIAL PARA CELULARES */
+@media (max-width: 768px) {
+    body::before {
+        /* En el celu, le damos un tamaño basado en el ANCHO de la pantalla */
+        background-size: 85% auto !important; 
+        
+        /* Ajustamos la posición para que no lo tape el título */
+        background-position: center 40% !important;
+        
+        /* Forzamos que el alto sea fijo para que no salte al scrollear */
+        height: 100%;
+    }
+}
 
 
 /* Navegación */
