@@ -707,37 +707,4 @@ h1, h2, h3, .hjm-title {
     letter-spacing: 8px;
 }
 
-    /* CAPA DE FONDO PROFESIONAL */
-body::before {
-    content: "";
-    position: fixed; /* Se queda quieto al bajar */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Va detrás de todo */
     
-    /* El color gris que elegiste */
-    background-color: #d1d5d8; 
-    
-    /* El Logo */
-    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
-                      url('logo.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    
-    /* Ajuste para PC */
-    background-size: 800px; 
-}
-
-/* AJUSTE ESPECÍFICO PARA CELULARES */
-@media (max-width: 768px) {
-    body::before {
-        /* En el celu, obligamos a que el logo se vea grande */
-        /* 'contain' hará que se vea el logo completo de lado a lado */
-        background-size: 90% auto !important; 
-        
-        /* Subimos un poquito el logo para que no lo tape el contenido */
-        background-position: center 30% !important;
-    }
-}
