@@ -29,14 +29,19 @@ body::before {
 }
 
 /* AJUSTE PARA CELULARES (Aquí lo hacemos gigante) */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     body::before {
-        /* En el celu obligamos a que el logo ocupe casi todo el ancho */
-        background-size: 90% auto !important;
-        background-position: center 25% !important;
-        opacity: 0.3; /* Un poquito más fuerte en el celu */
+        /* Cambiamos el 90% por 130vw para que desborde un poquito y se vea enorme */
+        background-size: 130vw auto !important; 
+        
+        /* Lo centramos bien */
+        background-position: center 30% !important;
+        
+        /* Si quieres que se vea más nítido, subí la opacidad */
+        opacity: 0.5 !important; 
     }
 }
+
 :root {
     --primario: #f39c12; /* Naranja Construcción */
     --oscuro: #2c3e50;
