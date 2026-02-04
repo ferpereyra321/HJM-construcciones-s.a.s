@@ -702,3 +702,28 @@ body {
     background-size: 400px;
 }
 
+/* --- FORZAR VISIBILIDAD DE MARCA DE AGUA --- */
+
+body {
+    /* Quitamos el degradado blanco momentáneamente para ver si el logo carga */
+    background-image: url('logo-fondo.png') !important; 
+    background-color: #f0f0f0 !important; /* Un gris muy clarito */
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: 500px !important;
+}
+
+/* ESTA ES LA CLAVE: 
+   Hacemos que el Hero y todas las secciones sean invisibles 
+   para que el logo del fondo se vea sí o sí */
+.hero, section, .hero-content, main {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Para que el texto no se pierda sin el fondo oscuro */
+.hjm-title, .hjm-tagline {
+    color: #333 !important; /* Texto oscuro momentáneo */
+    text-shadow: none !important;
+}
