@@ -706,27 +706,38 @@ h1, h2, h3, .hjm-title {
     font-weight: 300 !important; /* Contraste: CONSTRUCCIONES más fino */
     letter-spacing: 8px;
 }
-/* --- AJUSTES PARA CELULARES --- */
-@media (max-width: 768px) {
-    body {
-        /* Cambiamos el tamaño para que ocupe casi todo el ancho del celular */
-        background-size: 150% !important; 
-        
-        /* Opcional: Si el logo queda muy arriba, puedes centrarlo más 
-           ajustando el segundo valor (el vertical) */
-        background-position: center 20% !important; 
-        
-        /* Mantenemos el efecto fijo si el celular lo permite */
-        background-attachment: scroll; /* En algunos móviles 'fixed' falla, 'scroll' es más seguro */
-    }
 
-    /* Ajustamos también el tamaño del título para que no se amontone */
-    .hjm-title {
-        font-size: 2.5rem !important;
-    }
+    /* CAPA DE FONDO PROFESIONAL */
+body::before {
+    content: "";
+    position: fixed; /* Se queda quieto al bajar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Va detrás de todo */
     
-    .hjm-title span {
-        font-size: 0.5em !important;
-        letter-spacing: 4px !important;
+    /* El color gris que elegiste */
+    background-color: #d1d5d8; 
+    
+    /* El Logo */
+    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
+                      url('logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    /* Ajuste para PC */
+    background-size: 800px; 
+}
+
+/* AJUSTE ESPECÍFICO PARA CELULARES */
+@media (max-width: 768px) {
+    body::before {
+        /* En el celu, obligamos a que el logo se vea grande */
+        /* 'contain' hará que se vea el logo completo de lado a lado */
+        background-size: 90% auto !important; 
+        
+        /* Subimos un poquito el logo para que no lo tape el contenido */
+        background-position: center 30% !important;
     }
 }
