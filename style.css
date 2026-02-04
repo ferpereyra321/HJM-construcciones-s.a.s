@@ -28,42 +28,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover !important; 
 }
-/* CAPA DE FONDO INDEPENDIENTE */
-body::before {
-    content: "";
-    position: fixed; /* Esto fija el logo de verdad en el celu */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Ocupa el alto de la pantalla del celular */
-    z-index: -10; /* Se va al fondo de todo */
-    
-    background-color: #d1d5d8; /* Tu gris */
-    
-    /* El Logo con la transparencia que querías */
-    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
-                      url('logo.png');
-    
-    background-repeat: no-repeat;
-    background-position: center center;
-    
-    /* Tamaño para Computadoras */
-    background-size: 600px; 
-}
-
-/* AJUSTE ESPECIAL PARA CELULARES */
-@media (max-width: 768px) {
-    body::before {
-        /* En el celu, le damos un tamaño basado en el ANCHO de la pantalla */
-        background-size: 85% auto !important; 
-        
-        /* Ajustamos la posición para que no lo tape el título */
-        background-position: center 40% !important;
-        
-        /* Forzamos que el alto sea fijo para que no salte al scrollear */
-        height: 100%;
-    }
-}
 
 
 /* Navegación */
@@ -741,4 +705,39 @@ h1, h2, h3, .hjm-title {
 .hjm-title span {
     font-weight: 300 !important; /* Contraste: CONSTRUCCIONES más fino */
     letter-spacing: 8px;
+}
+
+    /* CAPA DE FONDO PROFESIONAL */
+body::before {
+    content: "";
+    position: fixed; /* Se queda quieto al bajar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Va detrás de todo */
+    
+    /* El color gris que elegiste */
+    background-color: #d1d5d8; 
+    
+    /* El Logo */
+    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
+                      url('logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    /* Ajuste para PC */
+    background-size: 800px; 
+}
+
+/* AJUSTE ESPECÍFICO PARA CELULARES */
+@media (max-width: 768px) {
+    body::before {
+        /* En el celu, obligamos a que el logo se vea grande */
+        /* 'contain' hará que se vea el logo completo de lado a lado */
+        background-size: 90% auto !important; 
+        
+        /* Subimos un poquito el logo para que no lo tape el contenido */
+        background-position: center 30% !important;
+    }
 }
