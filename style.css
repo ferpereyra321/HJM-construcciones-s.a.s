@@ -12,11 +12,23 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--gris-fondo);
-    color: #333;
-    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    background-color: #d1d5d8 !important; /* Tu fondo gris */
+
+    /* LA MAGIA ESTÁ AQUÍ: */
+    /* El valor 0.8 controla la transparencia. 
+       Si pones 0.9 se verá casi invisible. 
+       Si pones 0.5 se verá muy fuerte. */
+    background-image: linear-gradient(rgba(209, 213, 216, 0.6), rgba(209, 213, 216, 0.6)), 
+                      url('logo.png') !important;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover !important; 
 }
+
 
 /* Navegación */
 .navbar {
@@ -107,6 +119,7 @@ body {
     color: var(--blanco);
     padding: 5rem 10%;
 }
+
 
 .contenedor-formulario {
     max-width: 600px;
@@ -306,6 +319,7 @@ footer {
 .tarjeta-horizontal {
     display: flex;
     background: rgb(255, 255, 255);
+    background-color: #ffffff !important;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(187, 89, 89, 0.1);
@@ -328,8 +342,9 @@ footer {
     background-size: contain; /* CAMBIO CLAVE: 'contain' muestra la foto entera sin cortarla */
     background-repeat: no-repeat; /* Evita que la foto se repita si es chica */
     background-position: center;
-    min-height: 200px; /* Bajamos un poco la altura */
+    min-height: 300px; /* Bajamos un poco la altura */
     margin: 10px; /* Le da un aire alrededor a la foto */
+    
 }
 
 
@@ -343,7 +358,7 @@ footer {
 }
 
 .tarjeta-chica {
-    background: white;
+    background: rgba(72, 72, 72, 0.411);
     padding: 20px;
     border-radius: 12px;
     text-decoration: none;
@@ -373,7 +388,7 @@ footer {
 .formulario-contacto {
     max-width: 600px;
     margin: 0 auto;
-    background: white;
+    background: rgba(52, 52, 52, 0.397);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -506,19 +521,7 @@ section {
     background-color: transparent !important;
 }
 
-/* Sección Hero (Inicio) */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('tu-imagen-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-}
+
 
 /* El nombre en grande */
 .titulo-gigante {
@@ -551,47 +554,9 @@ section {
         font-size: 1rem;
         letter-spacing: 2px;
     }
-   
-
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Fondo oscuro para que el texto blanco resalte al inicio */
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('tu-foto-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-}
-
-.titulo-gigante {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    line-height: 0.9;
-    text-transform: uppercase;
-    margin: 0;
-    text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
-}
 }
 
 
-
-/* Sección Principal */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('tu-foto-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
 
 /* Título Estilizado */
 .hjm-title {
@@ -660,39 +625,9 @@ section, div, header {
 /* 1. Configuramos el fondo de toda la página */
 
 
-
-body {
-    /* Si esto funciona, verás un logo de Google de fondo */
-    background-image: url('logo.png') !important;
-    background-attachment: fixed !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-  background-size: 800px !important;
-    background-color: #f0f0f0 !important; /* Gris claro para notar el cambio */
-}
-
 .hero, section {
     background: transparent !important;
     background-color: transparent !important;
-}
-body {
-    margin: 0;
-    padding: 0;
-    /* Un gris cemento sólido y profesional */
-    background-color: #d1d5d8 !important; 
-    
-    /* EL LOGO: Sin filtros ni capas blancas para que se vea nítido */
-    background-image: url('logo.png') !important;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* TAMAÑO: 85% del ancho de la pantalla para que sea GIGANTE */
-    background-size: 85vw !important; 
-    
-    /* OPACIDAD: Si quieres que se vea al 100%, usa 1. 
-       Si quieres que sea sutil, usa 0.7 o 0.8 */
-    opacity: 1; 
 }
 
 /* IMPORTANTE: Hacer que todas las secciones sean invisibles 
@@ -708,4 +643,90 @@ body {
    podemos darle un sombreado para que se lea bien */
 .hjm-title {
     text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
+}.carrusel-seccion {
+    padding: 40px 0;
+    overflow: hidden; /* Oculta lo que sale de la pantalla */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo sutil sobre el gris */
+}
+
+.carrusel-contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carrusel-track {
+    display: flex;
+    width: calc(250px * 6); /* Ancho de cada foto multiplicado por la cantidad */
+    animation: scroll-infinito 20s linear infinite; /* 20s es la velocidad */
+}
+
+.carrusel-slide {
+    width: 300px; /* Ancho de cada imagen */
+    padding: 10px;
+}
+
+.carrusel-slide img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* LA ANIMACIÓN: Esto hace que se mueva solo */
+@keyframes scroll-infinito {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 3)); } /* Se detiene al pasar las primeras 3 */
+}
+
+/* Pausar cuando el usuario pasa el mouse por encima */
+.carrusel-track:hover {
+    animation-play-state: paused;
+}ç
+/* Fuente para toda la página (Texto general) */
+body {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Títulos potentes y modernos */
+h1, h2, h3, .hjm-title {
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase; /* Todo en mayúsculas para más fuerza */
+    letter-spacing: 1px; /* Un pequeño espacio entre letras para elegancia */
+}
+
+/* El toque especial para el título principal HJM */
+.hjm-title {
+    font-weight: 900 !important; /* Extra negrita */
+    font-size: 4.5rem; /* Ajusta según el tamaño de tu logo */
+}
+
+.hjm-title span {
+    font-weight: 300 !important; /* Contraste: CONSTRUCCIONES más fino */
+    letter-spacing: 8px;
+}
+/* --- AJUSTES PARA CELULARES --- */
+@media (max-width: 768px) {
+    body {
+        /* Cambiamos el tamaño para que ocupe casi todo el ancho del celular */
+        background-size: 150% !important; 
+        
+        /* Opcional: Si el logo queda muy arriba, puedes centrarlo más 
+           ajustando el segundo valor (el vertical) */
+        background-position: center 20% !important; 
+        
+        /* Mantenemos el efecto fijo si el celular lo permite */
+        background-attachment: scroll; /* En algunos móviles 'fixed' falla, 'scroll' es más seguro */
+    }
+
+    /* Ajustamos también el tamaño del título para que no se amontone */
+    .hjm-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hjm-title span {
+        font-size: 0.5em !important;
+        letter-spacing: 4px !important;
+    }
 }
