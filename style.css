@@ -738,35 +738,28 @@ html, body {
     padding: 0;
     height: 100%;
 }
+/* FORZAR FONDO GRIS */
+html, body {
+    background-color: #d1d5d8 !important;
+    margin: 0;
+    padding: 0;
+}
 
-/* 2. El Logo como una capa independiente */
+/* CAPA DE PRUEBA */
 body::before {
     content: "";
-    position: fixed; /* Se queda pegado a la pantalla */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Va detrás de todo el texto */
+    z-index: 1000; /* Lo ponemos AL FRENTE de todo para verlo */
+    pointer-events: none; /* Para que puedas hacer click a través del logo */
     
-    /* LA RUTA: Asegúrate que el nombre sea exacto */
-    background-image: url('logo.png') !important;
+    /* PROBAMOS CON UN LOGO DE INTERNET */
+    background-image: url('https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png') !important;
     background-repeat: no-repeat;
-    background-position: center 30%; /* Lo sube un poco para que luzca */
-    
-    /* TRANSPARENCIA: 0.2 es sutil, 1.0 es fuerte */
-    opacity: 0.3; 
-    
-    /* TAMAÑO PARA PC */
-    background-size: 600px;
-}
-
-/* 3. AJUSTE PARA CELULARES */
-@media (max-width: 768px) {
-    body::before {
-        /* En el celu obligamos a que el logo ocupe casi todo el ancho */
-        background-size: 90% auto !important; 
-        background-position: center 25% !important;
-        opacity: 0.4; /* Un poquito más fuerte en el celu */
-    }
+    background-position: center;
+    background-size: 300px;
+    opacity: 0.5;
 }
