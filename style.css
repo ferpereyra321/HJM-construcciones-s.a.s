@@ -692,31 +692,3 @@ section, div, header {
 .hjm-title {
     text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
 }
-/* CAPA DE FONDO QUE NO FALLA */
-body::after {
-    content: "";
-    position: fixed; /* Se queda pegado a la pantalla, no a la página */
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ancho total de la ventana */
-    height: 100vh; /* Alto total de la ventana */
-    z-index: -1; /* Lo manda al fondo de todo */
-    
-    /* El Logo */
-    background-image: linear-gradient(rgba(209, 213, 216, 0.8), rgba(209, 213, 216, 0.8)), 
-                      url('logo.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    
-    /* ESTA ES LA CLAVE: */
-    background-size: contain !important; /* El logo se agranda hasta tocar los bordes sin cortarse */
-}
-
-/* Ajuste fino para celulares */
-@media (max-width: 768px) {
-    body::after {
-        /* En el celu lo hacemos un poquito más grande que el contenedor */
-        background-size: 90% auto !important;
-        background-position: center 40% !important; /* Lo subimos un poco para que luzca */
-    }
-}
