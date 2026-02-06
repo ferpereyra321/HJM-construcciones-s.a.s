@@ -349,7 +349,7 @@ footer {
 
 .tarjeta-horizontal {
     display: flex;
-    background: rgb(255, 255, 255);
+    background-color: rgba(72, 72, 72, 0.411)!important;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(187, 89, 89, 0.1);
