@@ -98,7 +98,7 @@ body::before {
 /* AJUSTE PARA CELULARES */
 @media (max-width: 768px) {
     .logo-entrada img {
-        width: 900px; /* Un poco más chico en el celu */
+        width: 800px; /* Un poco más chico en el celu */
     }
 }
 .btn-principal {
