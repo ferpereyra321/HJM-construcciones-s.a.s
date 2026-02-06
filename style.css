@@ -662,15 +662,17 @@ html, body {
 }
 .contenedor-obras {
     width: 100%;
-    overflow: hidden; /* Corta lo que sobresale */
-    padding: 20px 0;
+    overflow: hidden;
+    padding: 30px 0;
+    position: relative;
     background: transparent;
 }
 
 .deslizador-obras {
     display: flex;
     gap: 20px;
-    width: max-content; /* Obliga a que las fotos se pongan una al lado de la otra */
+    width: max-content; /* Obliga a las fotos a estar en una sola fila larga */
+    animation: bucle-infinito 25s linear infinite;
 }
 
 .deslizador-obras img {
@@ -678,21 +680,22 @@ html, body {
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Animación por CSS puro (más confiable que JS) */
-@keyframes deslizar {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Se mueve hasta la mitad (donde empiezan las fotos repetidas) */
+/* La magia del bucle infinito */
+@keyframes bucle-infinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se desplaza exactamente la mitad del ancho total */
+        transform: translateX(calc(-50% - 10px)); 
+    }
 }
 
-.deslizador-obras {
-    animation: deslizar 20s linear infinite; /* 20 segundos para dar la vuelta */
-}
-
-/* Pausar cuando el usuario pasa el mouse */
-.deslizador-obras:hover {
+/* Pausa suave cuando el usuario toca o pasa el mouse */
+.contenedor-obras:hover .deslizador-obras {
     animation-play-state: paused;
 }
