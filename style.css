@@ -27,7 +27,7 @@ body::before {
     background-position: center center;
     
     /* Tamaño para computadoras */
-    background-size: 700px auto !important;
+    background-size: 1500px auto !important;
 }
 
 /* Ajuste para que el logo sea GIGANTE en celulares */
@@ -80,7 +80,7 @@ body::before {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 8.5rem;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1rem;
 }
@@ -203,27 +203,7 @@ footer {
     text-align: center;
 }
 
-.carrusel {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-    padding: 2rem 0;
-    scrollbar-width: thin;
-}
 
-.carrusel img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-/* Contenedor para asegurar el ancho total */
-.contenedor-destacado {
-    width: 100%;
-    margin-bottom: 2rem;
-}
 
 /* Forzamos que esta tarjeta no se comporte como las de la grilla */
 .tarjeta-destacada {
@@ -511,21 +491,7 @@ footer {
     transform: scale(1.1);
     background-color: #1ebea5 !important;
 }
-/* CONFIGURACIÓN DEL FONDO GENERAL */
 
-
-
-/* SECCIÓN PRINCIPAL (EL GRIS) */
-.hero {
-    height: 100vh;
-    /* Cambiamos el gris sólido por un gris con transparencia (el 0.8 al final) */
-    background-color: rgba(44, 62, 80, 0.8) !important; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
 
 /* OTRAS SECCIONES */
 section {
@@ -533,19 +499,6 @@ section {
     background-color: transparent !important;
 }
 
-/* Sección Hero (Inicio) */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(transparent), url('tu-imagen-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-}
 
 /* El nombre en grande */
 .titulo-gigante {
@@ -580,19 +533,7 @@ section {
     }
    
 
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Fondo oscuro para que el texto blanco resalte al inicio */
-    background: linear-gradient(transparent), url('tu-foto-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-}
+
 
 .titulo-gigante {
     font-family: 'Montserrat', sans-serif;
@@ -718,4 +659,40 @@ html, body {
     background-color: #d1d5d8 !important;
     margin: 0;
     padding: 0;
+}
+.contenedor-obras {
+    width: 100%;
+    overflow: hidden; /* Corta lo que sobresale */
+    padding: 20px 0;
+    background: transparent;
+}
+
+.deslizador-obras {
+    display: flex;
+    gap: 20px;
+    width: max-content; /* Obliga a que las fotos se pongan una al lado de la otra */
+}
+
+.deslizador-obras img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+/* Animación por CSS puro (más confiable que JS) */
+@keyframes deslizar {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se mueve hasta la mitad (donde empiezan las fotos repetidas) */
+}
+
+.deslizador-obras {
+    animation: deslizar 20s linear infinite; /* 20 segundos para dar la vuelta */
+}
+
+/* Pausar cuando el usuario pasa el mouse */
+.deslizador-obras:hover {
+    animation-play-state: paused;
 }
