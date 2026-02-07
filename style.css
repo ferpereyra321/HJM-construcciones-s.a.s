@@ -254,23 +254,96 @@ h2 {
     margin-bottom: 40px;
     color: var(--oscuro);
 }
-
+/* --- TARJETA HORIZONTAL DESTACADA (CONCREHAUS) --- */
 .tarjeta-horizontal {
     display: flex;
-    background: var(--blanco);
+    /* CAMBIO CLAVE: Fondo gris muy claro para darle "cuerpo" y separarla del fondo blanco */
+    background-color: #f8f9fa; 
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border-left: 10px solid #2ecc71;
-    margin-bottom: 40px;
-    transition: 0.3s;
+    /* Sombra más suave y difusa */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    /* Mantenemos el verde como identificador del sistema, pero es un detalle sutil */
+    border-left: 8px solid #2ecc71;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    align-items: center; /* Centra el texto verticalmente con la imagen */
+}
+.enlace-especial {
+    text-decoration: none !important; /* Esto mata el subrayado */
+    color: inherit;                  /* Hace que el texto no se ponga azul */
+    display: block;                  /* Asegura que toda la tarjeta sea clickeable */
 }
 
-.texto-horizontal { flex: 1.5; padding: 40px; text-align: left; }
+/* También por seguridad, aseguramos que el título no lo tenga */
+.texto-horizontal h3 {
+    text-decoration: none !important;
+}
+
+.tarjeta-horizontal:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+.texto-horizontal {
+    flex: 1.5;
+    padding: 50px; /* Más espacio interno para que respire */
+    text-align: left;
+}
+
+.texto-horizontal h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--oscuro);
+}
+
+.texto-horizontal p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+/* Transformamos el enlace de texto en un BOTÓN NARANJA para dar armonía */
+.flecha {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primario); /* Usamos TU naranja */
+    color: var(--blanco);
+    border-radius: 50px; /* Bordes bien redondos (estilo "píldora") */
+   text-decoration: none !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px -10px rgba(230, 126, 34, 0.5); /* Sombrita naranja */
+}
+
+/* Efecto hover en el nuevo botón */
+.flecha:hover {
+    background-color: #d35400; /* Naranja más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -10px rgba(230, 126, 34, 0.7);
+}
+
 .imagen-horizontal { 
-    flex: 1; 
+    flex: 0.6; 
+    /* Asegúrate que esta ruta sea correcta */
     background: url('./eps.jpg') center/cover no-repeat; 
-    min-height: 250px;
+    min-height: 250px; /* Un poco más alta para que imponga presencia */
+    height: 100%;
+}
+
+/* Ajuste para que se vea bien en celulares */
+@media (max-width: 800px) {
+    .tarjeta-horizontal { flex-direction: column; }
+    .imagen-horizontal { 
+        width: 50%; 
+        min-height: 100px;
+        order: -1; /* Imagen arriba */
+    }
+    .texto-horizontal {
+        padding: 10px;
+        text-align: center; /* Texto centrado en celular */
+    }
 }
 
 .contenedor-grilla-tres {
@@ -293,6 +366,7 @@ h2 {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
+
 
 .portada-chica { height: 180px; border-radius: 10px; margin-bottom: 15px; background-size: cover; }
 .civil { background-image: url('obra-civil.png'); }
