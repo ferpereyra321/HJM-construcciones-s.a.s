@@ -43,14 +43,23 @@ body::before {
 }
 /* --- FIN DEL BLOQUE DE FONDO --- */
 .navbar {
-    background: var(--oscuro);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: rgba(44, 62, 80, 0.9) !important; /* Traslúcido */
+    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+    padding: 1.2rem 5%;
+    border-bottom: 2px solid #f39c12; /* Línea fina naranja */
 }
+
+.navbar a {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f39c12 !important;
+}
+
 
 .logo {
     color: var(--blanco);
@@ -241,8 +250,6 @@ footer {
 }
 
 
-
-/* Forzamos que esta tarjeta no se comporte como las de la grilla */
 .tarjeta-destacada {
     width: 100% !important; 
     max-width: 100% !important;
@@ -274,7 +281,6 @@ footer {
     background-position: center;
 }
 
-/* Responsivo: Si la pantalla es chica, se pone una cosa arriba de la otra */
 @media (max-width: 768px) {
     .contenido-destacado {
         flex-direction: column;
@@ -335,7 +341,7 @@ footer {
     margin-bottom: 40px;
 }
 
-/* LA CLAVE: El bloque horizontal */
+/* El bloque horizontal */
 .bloque-destacado-full {
     width: 100%;
     max-width: 1100px; /* Ancho máximo para que no se estire infinito */
@@ -670,20 +676,7 @@ section, div, header {
     background-color: transparent !important;
 }
 
-/* IMPORTANTE: Hacer que todas las secciones sean invisibles 
-   para que no tapen el logo del fondo */
-.hero, section, main, .hero-content {
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
 
-/* Si tienes texto que se pierde con el logo, 
-   podemos darle un sombreado para que se lea bien */
-.hjm-title {
-    text-shadow: 2px 2px 10px rgba(255,255,255,0.5);
-}
 /* 1. Fondo de la página */
 html, body {
     background-color: #000000 !important;
@@ -735,4 +728,27 @@ html, body {
 /* Pausa suave cuando el usuario toca o pasa el mouse */
 .contenedor-obras:hover .deslizador-obras {
     animation-play-state: paused;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -1px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8; /* Más espacio entre líneas hace que se vea más limpio */
+    color: #555;
+}
+.tarjeta, .tarjeta-chica {
+    border: none !important;
+    background: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px; /* Bordes más redondeados son más modernos */
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px); /* Sube un poquito al pasar el mouse */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
