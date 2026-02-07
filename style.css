@@ -692,3 +692,106 @@ html {
     letter-spacing: 1px;
 }
 /* --- ESTILOS DEL ASISTENTE --- */
+:root { 
+    --hjm-naranja: #e67e22; 
+    --hjm-azul: #2c3e50; 
+}
+
+#marmolito-root { position: fixed; bottom: 20px; left: 20px; z-index: 1000000; font-family: 'Segoe UI', sans-serif; }
+
+/* ROBOT FLOTANTE */
+#marmolito-trigger {
+    width: 90px; cursor: pointer; animation: levitar 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,0.3)); transition: transform 0.3s;
+}
+#marmolito-trigger img { width: 100%; height: auto; display: block; }
+#marmolito-trigger:hover { transform: scale(1.1); }
+
+/* VENTANA DE CHAT */
+#marmolito-ventana {
+    position: absolute; bottom: 100px; left: 0; width: 320px; height: 450px;
+    background: white; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    display: none; flex-direction: column; overflow: hidden; border: 1px solid #ddd;
+}
+
+/* Ajuste Celulares */
+@media (max-width: 480px) {
+    #marmolito-ventana { width: 290px; height: 400px; bottom: 90px; }
+}
+
+.marmolito-header { background: var(--hjm-azul); color: white; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; }
+.header-info { display: flex; align-items: center; gap: 10px; }
+.header-info img { width: 35px; border-radius: 50%; background: white; padding: 2px; }
+
+#marmolito-chat { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fafafa; }
+
+/* GLOBOS DE TEXTO */
+.msj { padding: 10px 14px; border-radius: 15px; font-size: 14px; max-width: 85%; line-height: 1.4; position: relative; }
+.m-bot { background: #eee; align-self: flex-start; border-bottom-left-radius: 2px; color: #333; }
+
+/* AQUÍ ESTABA EL ERROR: Ahora el color naranja es correcto */
+.m-user { 
+    background: var(--hjm-naranja); 
+    color: white !important; 
+    align-self: flex-end; 
+    border-bottom-right-radius: 2px; 
+}
+
+/* Botón WhatsApp */
+.wa-btn {
+    display: block; background: #25d366; color: white; text-align: center;
+    padding: 10px; border-radius: 10px; text-decoration: none; font-weight: bold;
+    margin-top: 5px; font-size: 13px;
+}
+
+/* EFECTO ESCRIBIENDO */
+#marmolito-typing { padding: 8px 15px; display: flex; gap: 4px; align-self: flex-start; background: #eee; border-radius: 15px; margin-left: 15px; margin-bottom: 10px; width: fit-content; }
+.dot { width: 6px; height: 6px; background: #bbb; border-radius: 50%; animation: blink 1.4s infinite; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+.marmolito-footer { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white; }
+#marmolito-input { flex: 1; border: none; outline: none; background: #f0f2f5; padding: 8px 12px; border-radius: 20px; }
+.close-x { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+@keyframes levitar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+/* --- BOTÓN FLOTANTE WHATSAPP (DERECHA) --- */
+.hjm-wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* A la derecha para no chocar con Marmolito */
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 999999; /* Asegura que esté siempre arriba */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hjm-wa-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+}
+
+.hjm-wa-float img {
+    width: 38px;
+    height: 38px;
+}
+
+/* Ajuste para que en el celular no sea tan gigante */
+@media (max-width: 480px) {
+    .hjm-wa-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .hjm-wa-float img {
+        width: 30px;
+        height: 30px;
+    }
+}

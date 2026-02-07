@@ -124,16 +124,47 @@
         <p>&copy; 2026 HJM Construcciones S.A.S - Todos los derechos reservados</p>
     </footer>
 
-    <a href="https://wa.me/5493513449890" class="boton-wp-flotante" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+    <a href="https://wa.me/5493513449890?text=Hola%20Javier%2C%20vengo%20de%20la%20web%20de%20HJM.%20Quisiera%20consultarles%20por%20un%20proyecto." 
+   class="hjm-wa-float" 
+   target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Javier">
+</a>
 asistente
 
+<div id="marmolito-root">
+    <div id="marmolito-ventana" style="display: none;">
+        <div class="marmolito-header">
+            <div class="header-info">
+                <img src="robot-hjm.png.png" alt="Marmolito">
+                <div>
+                    <strong>Marmolito</strong>
+                    <small>IA de HJM Construcciones</small>
+                </div>
+            </div>
+            <button onclick="toggleMarmolito()" class="close-x">&times;</button>
+        </div>
 
-    
+        <div id="marmolito-chat">
+            <div class="msj m-bot">¡Hola! Soy <strong>Marmolito</strong>. Analizando requerimientos... ¿Buscás info sobre <strong>EPS</strong> u <strong>Obra Vial</strong>?</div>
+        </div>
+
+        <div id="marmolito-typing" style="display: none;">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <div class="marmolito-footer">
+            <input type="text" id="marmolito-input" placeholder="Escribí aquí..." onkeypress="if(event.key==='Enter') enviarMarmolito()">
+            <button onclick="enviarMarmolito()">➤</button>
+        </div>
+    </div>
+
+    <div id="marmolito-trigger" onclick="toggleMarmolito()">
+        <img src="robot-hjm.png.png" alt="Marmolito">
     </div>
 </div>
-</div>
+    
+
+
 </body>
 <script src="script.js"></script>
 
