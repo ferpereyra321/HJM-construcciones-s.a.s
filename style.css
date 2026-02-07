@@ -1,12 +1,24 @@
-/* --- BLOQUE DE FONDO ÚNICO Y REFORZADO --- */
-html {
-    background-color: #d1d5d8; /* Gris base */
+/* --- VARIABLES Y RESET --- */
+:root {
+    --primario: #e67e22;
+    --oscuro: #2c3e50;
+    --gris-fondo: #d1d5d8;
+    --blanco: #ffffff;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--gris-fondo);
+    overflow-x: hidden;
+}
 
-
-/* El logo como capa fija detrás de todo */
+/* --- LOGO DE FONDO (MARCA DE AGUA) --- */
 body::before {
     content: "";
     position: fixed;
@@ -15,740 +27,322 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: #000000af !important;
-    opacity: 0.30;
-    /* La imagen con su transparencia */
-    background-image: linear-gradient(rgba(209, 213, 216, 0.7), rgba(209, 213, 216, 0.7)), 
-                      url('logo.png') !important;
+    background-image: url('logo.png');
     background-repeat: no-repeat;
-    background-position: center center;
-    
-    /* Tamaño para computadoras */
-    background-size: 1300px auto !important;
+    background-position: center;
+    background-size: 1000px auto;
+    opacity: 0.1; /* Muy sutil para que sea profesional */
 }
 
-/* Ajuste para que el logo sea GIGANTE en celulares */
-@media (max-width: 768px) {
-    body::before {
-        background-size: 220vw auto !important; /* 130% del ancho de la pantalla */
-        background-position: center 35% !important;
-    }
-}
-
-/* Limpieza de secciones para que no tapen el logo */
-.hero, section, main, .seccion-servicios {
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-/* --- FIN DEL BLOQUE DE FONDO --- */
+/* --- NAVEGACIÓN --- */
 .navbar {
-    background: rgba(44, 62, 80, 0.9) !important; /* Traslúcido */
-    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
-    padding: 1.2rem 5%;
-    border-bottom: 2px solid #f39c12; /* Línea fina naranja */
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid var(--primario);
 }
-
-.navbar a {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #f39c12 !important;
-}
-
 
 .logo {
     color: var(--blanco);
+    text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 900;
 }
 
-.logo span {
-    color: var(--primario);
-}
+.logo span { color: var(--primario); }
 
-/* Hero Section */
-/* SECCIÓN DE ENTRADA CON LOGO */
-.seccion-inicio {
+/* style.css */
+
+/* --- ESTILOS DE LA NUEVA PORTADA MODERNA --- */
+.hero-moderno {
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
     width: 100%;
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 0 10%; /* Margen a los costados */
+    color: var(--blanco);
+    
+    /* IMAGEN DE FONDO: Cambia esta URL por una foto tuya impactante */
+    background-image: url('portada.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax: el fondo se mueve más lento */
+    
+    z-index: 1; /* Asegura que esté sobre la marca de agua del body */
+    overflow: hidden;
+}
+
+/* Capa oscura sobre la foto para que el texto resalte */
+.overlay-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado moderno: de azul oscuro a transparente */
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.95), rgba(44, 62, 80, 0.5));
+    z-index: -1;
+}
+
+.contenido-hero {
+    max-width: 800px; /* Ancho máximo del texto */
+    z-index: 2;
+}
+
+/* Tipografía del Título */
+.hero-moderno h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem; /* Muy grande y potente */
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    animation: entrada-izquierda 1s ease-out;
+}
+
+.texto-naranja {
+    color: var(--primario); /* Tu color naranja */
+}
+
+/* Subtítulo */
+.bajada-hero {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 600px;
+    animation: entrada-izquierda 1.2s ease-out;
+}
+
+/* Contenedor de botones */
+.botones-hero {
+    display: flex;
+    gap: 20px;
+    animation: entrada-subir 1.5s ease-out;
+}
+
+/* Estilos de los Botones */
+.btn-hero {
+    padding: 15px 35px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Botón Naranja Sólido */
+.btn-hero.primario {
+    background-color: var(--primario);
+    color: var(--blanco);
+    border: 2px solid var(--primario);
+    box-shadow: 0 10px 20px -10px rgba(230, 126, 34, 0.5);
+}
+
+.btn-hero.primario:hover {
+    background-color: #d35400;
+    border-color: #d35400;
+    transform: translateY(-3px);
+}
+
+/* Botón Transparente con Borde */
+.btn-hero.secundario {
+    background-color: transparent;
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+}
+
+.btn-hero.secundario:hover {
+    background-color: var(--blanco);
+    color: var(--oscuro);
+    transform: translateY(-3px);
+}
+
+/* Indicador de Scroll hacia abajo */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: rebotar 2s infinite;
+}
+
+.scroll-down svg { margin-top: 5px; }
+
+/* --- ANIMACIONES --- */
+@keyframes entrada-izquierda {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes entrada-subir {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rebotar {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* --- RESPONSIVE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .hero-moderno { padding: 0 5%; text-align: center; }
+    .hero-moderno h1 { font-size: 2.5rem; }
+    .bajada-hero { font-size: 1rem; margin-left: auto; margin-right: auto; }
+    .botones-hero { flex-direction: column; gap: 15px; }
+    .btn-hero { width: 100%; }
+    .overlay-hero { background: rgba(44, 62, 80, 0.85); } /* Menos degradado en celu */
+}
+
+/* --- SECCIÓN INICIO (HERO) --- */
+/* Ajuste de tipografía para que el eslogan nuevo luzca profesional */
+.hero-moderno h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Esto ajusta el tamaño según la pantalla automáticamente */
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.5); /* Le da profundidad para que no se pierda con el fondo */
+}
+
+.bajada-hero {
+    font-weight: 400;
+    max-width: 700px;
+    line-height: 1.6;
+}
+.seccion-inicio {
     height: 100vh;
+    background-color: #000; /* Fondo negro puro al inicio */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0000003f !important;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
 }
 
-
-/* --- EFECTO PARA COMPUTADORA (PC) --- */
 .logo-entrada img {
-    width: 100%;            /* En PC no necesita ocupar todo el ancho */
-    max-width: 1000px;
-    height: auto;
-    /* Efecto: El logo aparece desde abajo con un brillo */
-    animation: entrada-pc 3s ease-out forwards;
-    filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.2));
+    width: 90%;
+    max-width: 800px;
+    animation: entrada-logo 2.5s ease-out forwards;
 }
 
-@keyframes entrada-pc {
-    0% { 
-        opacity: 0; 
-        transform: translateY(50px) scale(0.9); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-    }
+@keyframes entrada-logo {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-/* --- EFECTO PARA CELULAR (MÓVIL) --- */
-@media (max-width: 768px) {
-    .logo-entrada img {
-        width: 100% !important;   /* En celular sí queremos que sea bien ancho */
-        max-width: 500px;
-        /* Efecto: El logo hace un "latido" suave constante */
-        animation: latido-celu 2s ease-in-out infinite !important;
-        filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.15));
-    }
-
-    @keyframes latido-celu {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
-}
-
-
-/* AJUSTE PARA CELULARES */
-@media (max-width: 768px) {
-    .logo-entrada img {
-        width: 800px; /* Un poco más chico en el celu */
-    }
-}
-.btn-principal {
-    display: inline-block;
-    background: var(--primario);
-    color: var(--blanco);
-    padding: 1rem 2rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 1.5rem;
-    transition: 0.3s;
-}
-
-.btn-principal:hover {
-    background: #e67e22;
-    transform: scale(1.05);
-}
-
-/* Servicios */
-.servicios {
-    padding: 5rem 10%;
-    text-align: center;
-}
-
-.grid-servicios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.tarjeta {
-    background: var(--blanco);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 5px solid var(--primario);
-    min-height: 380px; /* Esto hace que todas midan lo mismo */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Formulario */
-.contacto-seccion {
-    background: var(--oscuro);
-    color: var(--blanco);
-    padding: 5rem 10%;
-}
-
-
-.contenedor-formulario {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.input-group {
-    margin-bottom: 1.2rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-}
-
-textarea {
-    height: 150px;
-}
-
-.btn-enviar {
-    width: 100%;
-    padding: 1rem;
-    background: var(--primario);
-    border: none;
-    color: var(--blanco);
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.1rem;
-    border-radius: 5px;
-}
-
-footer {
-    background: #1a252f;
-    color: #bdc3c7;
-    text-align: center;
-    padding: 2rem;
-}
-/* Estilos para las tarjetas con imagen */
-.tarjeta-link {
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s;
-}
-
-.tarjeta-link:hover {
-    transform: translateY(-10px);
-}
-
-.portada-servicio {
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-/* Fotos de ejemplo para las portadas */
-.civil { background-image: url(obra\ civil.png); }
-.fundaciones { background-image: url(hormigon.png); }
-.vial { background-image: url(obra.png); }
-
-/* Estilo para el Carrusel */
-.detalle-servicio {
-    padding: 5rem 10%;
-    text-align: center;
-}
-
-
-.tarjeta-destacada {
-    width: 100% !important; 
-    max-width: 100% !important;
-    min-height: auto !important; /* Quitamos el alto mínimo de las otras */
-    display: block !important;
-    padding: 0 !important;
-}
-
-.contenido-destacado {
-    display: flex;
-    flex-direction: row; /* Imagen a un lado, texto al otro */
-    width: 100%;
-}
-
-.info-destacada {
-    flex: 1.5; /* El texto ocupa un poco más */
-    padding: 3rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.imagen-destacada {
-    flex: 1;
-    min-height: 300px;
-    background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-position: center;
-}
-
-@media (max-width: 768px) {
-    .contenido-destacado {
-        flex-direction: column;
-    }
-    .imagen-destacada {
-        height: 200px;
-        order: 1; /* Imagen arriba */
-    }
-    .info-destacada {
-        order: 2; /* Texto abajo */
-        padding: 1.5rem;
-    }
-}
-.info-destacada h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--oscuro);
-}
-
-.imagen-destacada {
-    flex: 1;
-    min-width: 300px;
-    height: 250px;
-    background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-position: center;
-}
-
-.btn-secundario {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #2ecc71;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-/* Ajuste para móviles */
-@media (max-width: 768px) {
-    .contenido-destacado {
-        flex-direction: column;
-    }
-    .info-destacada {
-        order: 2;
-    }
-    .imagen-destacada {
-        width: 100%;
-        order: 1;
-    }
-}
+/* --- SERVICIOS --- */
 .seccion-servicios {
-    padding: 60px 5%;
-    background-color: #f9f9f9;
-}
-
-.contenedor-titulo {
+    padding: 80px 10%;
     text-align: center;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
     margin-bottom: 40px;
-}
-
-/* El bloque horizontal */
-.bloque-destacado-full {
-    width: 100%;
-    max-width: 1100px; /* Ancho máximo para que no se estire infinito */
-    margin: 0 auto 40px auto;
-}
-
-.enlace-especial {
-    text-decoration: none;
-    color: inherit;
+    color: var(--oscuro);
 }
 
 .tarjeta-horizontal {
     display: flex;
-    background-color: rgba(72, 72, 72, 0.411)!important;
-    border-radius: 12px;
+    background: var(--blanco);
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(187, 89, 89, 0.1);
-    border-left: 8px solid #2ecc71; /* Verde Concrehaus */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-left: 10px solid #2ecc71;
+    margin-bottom: 40px;
     transition: 0.3s;
 }
 
-.tarjeta-horizontal:hover {
-    transform: scale(1.01);
+.texto-horizontal { flex: 1.5; padding: 40px; text-align: left; }
+.imagen-horizontal { 
+    flex: 1; 
+    background: url('./eps.jpg') center/cover no-repeat; 
+    min-height: 250px;
 }
 
-.texto-horizontal {
-    flex: 1.5;
-    padding: 40px;
-}
-
-.imagen-horizontal {
-    flex: 0.3; /* Bajamos de 1 a 0.8 para que la foto ocupe menos ancho que el texto */
-    background-image: url('./eps.jpg'); 
-    background-size: contain; /* CAMBIO CLAVE: 'contain' muestra la foto entera sin cortarla */
-    background-repeat: no-repeat; /* Evita que la foto se repita si es chica */
-    background-position: center;
-    min-height: 200px; /* Bajamos un poco la altura */
-    margin: 10px; /* Le da un aire alrededor a la foto */
-}
-
-
-/* LA GRILLA DE 3 */
 .contenedor-grilla-tres {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .tarjeta-chica {
-    background: rgba(72, 72, 72, 0.411);
-    padding: 20px;
-    border-radius: 12px;
+    background: var(--blanco);
+    padding: 25px;
+    border-radius: 15px;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    border-top: 4px solid var(--primario);
-}
-
-.portada-chica {
-    height: 150px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    background-size: cover;
-}
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .tarjeta-horizontal {
-        flex-direction: column;
-    }
-    .imagen-horizontal {
-        height: 200px;
-        order: -1; /* Imagen arriba en el celu */
-    }
-}
-.formulario-contacto {
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(52, 52, 52, 0.397);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.grupo-input {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.grupo-input label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--oscuro);
-}
-
-.grupo-input input, 
-.grupo-input textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.grupo-input input:focus, 
-.grupo-input textarea:focus {
-    border-color: var(--primario);
-    outline: none;
-    box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
-}
-
-.btn-principal {
-    width: 100%;
-    background-color: #e67e22; /* El naranja de HJM */
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+    border-top: 5px solid var(--primario);
     transition: 0.3s;
 }
 
-.btn-principal:hover {
-    background-color: #d35400;
-}
-/* Botón flotante de WhatsApp */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    z-index: 9999;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.tarjeta-chica:hover, .tarjeta-horizontal:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.whatsapp-btn img {
-    width: 35px;
-    height: 35px;
-}
+.portada-chica { height: 180px; border-radius: 10px; margin-bottom: 15px; background-size: cover; }
+.civil { background-image: url('obra-civil.png'); }
+.fundaciones { background-image: url('hormigon.png'); }
+.vial { background-image: url('obra.png'); }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    background-color: #20ba5a;
-}
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .whatsapp-btn {
-        bottom: 15px;
-        right: 15px;
-        width: 55px;
-        height: 55px;
-    }
-}/* Forzamos que sea un círculo pequeño flotante */
-.boton-wp-flotante {
-    position: fixed !important; /* Se queda quieto al hacer scroll */
-    bottom: 20px !important;
-    right: 20px !important;
-    width: 60px !important;    /* Tamaño del círculo */
-    height: 60px !important;   /* Tamaño del círculo */
-    background-color: #25d366 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 9999 !important;  /* Siempre por encima de todo */
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-}
-
-.boton-wp-flotante img {
-    width: 35px !important;    /* Tamaño del logo adentro */
-    height: 35px !important;
-    margin: 0 !important;
-}
-
-.boton-wp-flotante:hover {
-    transform: scale(1.1);
-    background-color: #1ebea5 !important;
-}
-
-
-/* OTRAS SECCIONES */
-section {
-    /* Hacemos que todas las demás secciones sean transparentes para ver el logo */
-    background-color: transparent !important;
-}
-
-
-/* El nombre en grande */
-.titulo-gigante {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5.5rem; /* Muy grande */
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -2px; /* Letras más juntas para que se vea compacto */
-    line-height: 1;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 0px var(--primario); /* Sombra naranja que le da estilo */
-}
-
-.subtitulo-hero {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #f4f4f4;
-}
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .titulo-gigante {
-        font-size: 3rem;
-        letter-spacing: -1px;
-    }
-    .subtitulo-hero {
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
-   
-
-
-
-.titulo-gigante {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    line-height: 0.9;
-    text-transform: uppercase;
-    margin: 0;
-    text-shadow: 4px 4px 0px #e67e22; /* Sombra naranja HJM */
-}
-}
-
-
-
-/* Sección Principal */
-.hero {
-    height: 100vh;
-    background: linear-gradient(transparent), url('tu-foto-de-obra.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-/* Título Estilizado */
-.hjm-title {
-    font-size: 5rem;
-    font-weight: 800;
-    margin: 0;
-    letter-spacing: -2px;
-    line-height: 1;
-    text-transform: uppercase;
-}
-
-.hjm-title span {
-    display: block;
-    color: #e67e22; /* El naranja HJM */
-    font-size: 4rem;
-    font-weight: 300; /* Más fino para contraste */
-    letter-spacing: 10px;
-    margin-top: 5px;
-}
-
-/* Línea decorativa naranja */
-.divider {
-    width: 80px;
-    height: 4px;
-    background-color: #e67e22;
-    margin: 25px auto;
-}
-
-/* Eslogan */
-.hjm-tagline {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    font-weight: 300;
-    opacity: 0.9;
-}
-
-/* Botón más moderno */
-.btn-presupuesto {
-    padding: 15px 35px;
-    background-color: transparent;
-    border: 2px solid #e67e22;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.btn-presupuesto:hover {
-    background-color: #e67e22;
-    color: white;
-    box-shadow: 0 0 20px rgba(230, 126, 34, 0.4);
-}
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .hjm-title { font-size: 3rem; }
-    .hjm-title span { font-size: 2rem; letter-spacing: 5px; }
-}
-/* Esto hace que todas las secciones sean transparentes para ver el fondo */
-section, div, header {
-    background-color: transparent !important;
-}
-/* 1. Configuramos el fondo de toda la página */
-
-
-.hero, section {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-
-/* 1. Fondo de la página */
-html, body {
-    background-color: #000000 !important;
-    margin: 0;
-    padding: 0;
-}
-
-/* FORZAR FONDO GRIS */
-html, body {
-    background-color: #348be200 !important;
-    margin: 0;
-    padding: 0;
-}
-.contenedor-obras {
-    width: 100%;
-    overflow: hidden;
-    padding: 30px 0;
-    position: relative;
-    background: transparent;
-}
-
+/* --- CARRUSEL --- */
+.seccion-obras h2 { margin-top: 40px; }
+.contenedor-obras { overflow: hidden; padding: 40px 0; }
 .deslizador-obras {
     display: flex;
     gap: 20px;
-    width: max-content; /* Obliga a las fotos a estar en una sola fila larga */
-    animation: bucle-infinito 25s linear infinite;
+    width: max-content;
+    animation: bucle 30s linear infinite;
+}
+.deslizador-obras img { width: 350px; height: 250px; object-fit: cover; border-radius: 15px; }
+
+@keyframes bucle {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-.deslizador-obras img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+/* --- FORMULARIO --- */
+.contacto-seccion { background: var(--oscuro); padding: 80px 10%; color: white; }
+.formulario-contacto { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; }
+.grupo-input { margin-bottom: 20px; text-align: left; }
+.grupo-input label { display: block; margin-bottom: 8px; font-weight: 600; }
+.grupo-input input, .grupo-input textarea {
+    width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 1rem;
 }
 
-/* La magia del bucle infinito */
-@keyframes bucle-infinito {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Se desplaza exactamente la mitad del ancho total */
-        transform: translateX(calc(-50% - 10px)); 
-    }
+.btn-principal {
+    width: 100%; background: var(--primario); color: white; padding: 15px;
+    border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
 }
 
-/* Pausa suave cuando el usuario toca o pasa el mouse */
-.contenedor-obras:hover .deslizador-obras {
-    animation-play-state: paused;
-}
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap');
+.btn-principal:hover { background: #d35400; transform: scale(1.02); }
 
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: -1px;
+/* --- WHATSAPP --- */
+.boton-wp-flotante {
+    position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+    background: #25d366; border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-p {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.8; /* Más espacio entre líneas hace que se vea más limpio */
-    color: #555;
-}
-.tarjeta, .tarjeta-chica {
-    border: none !important;
-    background: #ffffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 15px; /* Bordes más redondeados son más modernos */
-}
+.boton-wp-flotante img { width: 35px; }
 
-.tarjeta:hover {
-    transform: translateY(-10px); /* Sube un poquito al pasar el mouse */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .tarjeta-horizontal { flex-direction: column; }
+    .imagen-horizontal { order: -1; }
+    .logo-entrada img { width: 95%; }
 }
