@@ -369,7 +369,7 @@ h2 {
 
 
 .portada-chica { height: 180px; border-radius: 10px; margin-bottom: 15px; background-size: cover; }
-.civil { background-image: url('obra-civil.png'); }
+.civil { background-image: url('obra\ civil.png'); }
 .fundaciones { background-image: url('hormigon.png'); }
 .vial { background-image: url('obra.png'); }
 
@@ -692,60 +692,3 @@ html {
     letter-spacing: 1px;
 }
 /* --- ESTILOS DEL ASISTENTE --- */
-#hjm-robot-ia {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* Lado opuesto al WhatsApp para no taparlo */
-    z-index: 999999;
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* El Botón del Robot */
-#chat-trigger {
-    width: 80px;
-    height: 80px;
-    background: #e67e22; /* Tu naranja HJM */
-    border-radius: 25px; /* Estilo moderno redondeado */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 3px solid white;
-    transition: 0.3s;
-}
-
-#chat-trigger:hover { transform: scale(1.1); }
-
-.notif-badge {
-    position: absolute; top: -5px; right: -5px;
-    background: #ff3e3e; color: white; border-radius: 50%;
-    padding: 2px 8px; font-size: 12px; font-weight: bold; border: 2px solid white;
-}
-
-/* La Ventana del Chat */
-#chat-window {
-    position: absolute; bottom: 100px; left: 0;
-    width: 330px; height: 480px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px); /* Efecto vidrio */
-    border-radius: 25px;
-    display: flex; flex-direction: column;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-    overflow: hidden;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hidden { transform: scale(0); opacity: 0; pointer-events: none; transform-origin: bottom left; }
-
-.chat-header { background: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-.ai-info { display: flex; align-items: center; gap: 10px; }
-.ai-avatar-mini { background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
-
-#chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-.msg-bot, .msg-user { padding: 12px 16px; border-radius: 15px; font-size: 14px; line-height: 1.4; max-width: 85%; }
-.msg-bot { background: #f1f1f1; align-self: flex-start; border-bottom-left-radius: 2px; }
-.msg-user { background: #e67e22; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-
-.chat-footer { padding: 15px; border-top: 1px solid #eee; display: flex; background: white; }
-#chat-input { flex: 1; border: none; outline: none; font-size: 14px; }
