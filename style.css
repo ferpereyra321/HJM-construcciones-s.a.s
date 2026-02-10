@@ -818,7 +818,7 @@ html {
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .grilla-videos {
@@ -834,7 +834,7 @@ html {
     border-radius: 20px;
     overflow: hidden;
     height: 450px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.192);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.4s ease;
 }
@@ -854,7 +854,7 @@ html {
     bottom: 0;
     width: 100%;
     padding: 25px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.281));
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
     color: white;
     font-weight: bold;
     font-size: 20px;
