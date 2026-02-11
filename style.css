@@ -870,51 +870,32 @@ html {
 }
 
 /* ESTILOS DEL BOTÓN-INSIGNIA DELTA */
+/* Asegurate de que el CSS del mensaje anterior esté, y agregá/modificá esto: */
+
 .delta-badge {
     display: inline-flex;
     align-items: center;
-    background-color: #0f161d; /* Fondo muy oscuro para el botón */
-    padding: 8px 16px;
-    border-radius: 30px; /* Bordes bien redondeados */
+    background-color: #0f161d;
+    padding: 10px 20px;
+    border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease; /* Suaviza la animación */
-    border: 1px solid #2c3e50; /* Borde sutil */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #2c3e50;
 }
 
-/* El ícono del triángulo */
-.delta-icon {
-    width: 18px;
-    height: 18px;
-    fill: #e67e22; /* Color naranja inicial para el ícono */
-    margin-right: 10px;
-    transition: all 0.3s ease;
-}
-
-/* El texto */
-.delta-text {
-    color: #bdc3c7;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.delta-text strong {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-/* EFECTO HOVER (Cuando pasás el mouse) */
 .delta-badge:hover {
-    background-color: #e67e22; /* El fondo se vuelve naranja */
-    border-color: #e67e22;
-    transform: translateY(-2px); /* Se eleva un poquito */
-    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3); /* Sombra naranja */
+    background-color: #e67e22; /* El naranja de la obra */
+    transform: translateY(-5px); /* Se levanta más */
+    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4);
+    border-color: #ffffff;
 }
 
-.delta-badge:hover .delta-icon {
-    fill: #ffffff; /* El ícono se vuelve blanco */
+/* Animación de entrada para que no pase desapercibido */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.delta-badge:hover .delta-text {
-    color: #ffffff; /* El texto se vuelve blanco */
+.delta-badge {
+    animation: aparecer 1s ease-out;
 }
