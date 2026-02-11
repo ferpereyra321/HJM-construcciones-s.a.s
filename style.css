@@ -870,32 +870,55 @@ html {
 }
 
 /* ESTILOS DEL BOTÓN-INSIGNIA DELTA */
-/* Asegurate de que el CSS del mensaje anterior esté, y agregá/modificá esto: */
+/* === ESTILOS DEL BOTÓN-INSIGNIA DELTA (VERSIÓN COMPACTA) === */
 
 .delta-badge {
     display: inline-flex;
     align-items: center;
     background-color: #0f161d;
-    padding: 10px 20px;
-    border-radius: 50px;
+    /* REDUCCIÓN DE TAMAÑO AQUÍ: Menos relleno */
+    padding: 5px 12px; 
+    border-radius: 20px; /* Radio ajustado al nuevo tamaño */
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     border: 1px solid #2c3e50;
+    margin-top: 10px; /* Un poquito de aire arriba */
 }
 
+/* Ajustamos el tamaño del triangulito */
+.delta-icon {
+    width: 12px;  /* Antes era más grande */
+    height: 12px;
+    fill: #e67e22;
+    margin-right: 6px; /* Menos espacio entre ícono y texto */
+    transition: all 0.3s ease;
+}
+
+/* Ajustamos el tamaño del texto */
+.delta-text {
+    color: #bdc3c7;
+    font-size: 10px; /* Letra tipo "firma" pequeña */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.delta-text strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* EFECTO HOVER (Se mantiene igual de atractivo) */
 .delta-badge:hover {
-    background-color: #e67e22; /* El naranja de la obra */
-    transform: translateY(-5px); /* Se levanta más */
-    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4);
-    border-color: #ffffff;
+    background-color: #e67e22;
+    border-color: #e67e22;
+    transform: translateY(-2px); /* El salto es más sutil ahora */
+    box-shadow: 0 5px 10px rgba(230, 126, 34, 0.3);
 }
 
-/* Animación de entrada para que no pase desapercibido */
-@keyframes aparecer {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.delta-badge:hover .delta-icon {
+    fill: #ffffff;
 }
 
-.delta-badge {
-    animation: aparecer 1s ease-out;
+.delta-badge:hover .delta-text {
+    color: #ffffff;
 }
