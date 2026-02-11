@@ -922,3 +922,34 @@ html {
 .delta-badge:hover .delta-text {
     color: #ffffff;
 }
+/* === ESTILOS DEL FOOTER === */
+.site-footer {
+    padding: 30px 0;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre el QR, el texto y el botón */
+}
+
+/* Tamaño controlado para el QR de AFIP */
+.legal-badge img {
+    width: 45px; /* Tamaño profesional y discreto */
+    height: auto;
+    filter: grayscale(100%); /* Opcional: para que no desentone con el diseño oscuro */
+    transition: filter 0.3s ease;
+}
+
+.legal-badge img:hover {
+    filter: grayscale(0%); /* Se pone a color cuando pasás el mouse */
+}
+
+.footer-copyright {
+    color: #7f8c8d;
+    font-size: 12px;
+    margin: 0;
+}
