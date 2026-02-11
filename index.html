@@ -43,8 +43,8 @@
     
     <div class="contenido-hero">
         <h1>
-    Infraestructura Vial y Civil <br>
-    <span class="texto-naranja">con Innovación EPS.</span>
+    Infraestructura Civil y Vial <br>
+    <span class="texto-naranja">con Innovación en paneles EPS.</span>
 </h1>
 <p class="bajada-hero">
      PIONEROS EN CONSTRUCCIÓN TERMOEFICIENTE CON SISTEMA DE PANELES EPS
@@ -232,41 +232,30 @@
 </a>
 asistente
 
-<div id="marmolito-root">
-    <div id="marmolito-ventana" style="display: none;">
-        <div class="marmolito-header">
-            <div class="header-info">
-                <img src="robot-hjm.png.png" alt="Marmolito">
-                <div>
-                    <strong>Marmolito</strong>
-                    <small>IA de HJM Construcciones</small>
-                </div>
-            </div>
-            <button onclick="toggleMarmolito()" class="close-x">&times;</button>
-        </div>
+<div id="epsio-bot" onclick="toggleEpsio()">
+    <img src="robot-hjm.png.png" alt="EPSio">
+</div>
 
-        <div id="marmolito-chat">
-            <div class="msj m-bot">¡Hola! Soy <strong>Marmolito</strong>. Analizando requerimientos... ¿Buscás info sobre <strong>EPS</strong> u <strong>Obra Vial</strong>?</div>
+<div id="epsio-ventana">
+    <div class="epsio-header">
+        <div class="header-info">
+            <strong>EPSio</strong>
+            <span>HJM Construcciones</span>
         </div>
-
-        <div id="marmolito-typing" style="display: none;">
-            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        </div>
-
-        <div class="marmolito-footer">
-            <input type="text" id="marmolito-input" placeholder="Escribí aquí..." onkeypress="if(event.key==='Enter') enviarMarmolito()">
-            <button onclick="enviarMarmolito()">➤</button>
-        </div>
+        <span class="close-btn" onclick="toggleEpsio()">✕</span>
     </div>
-
-    <div id="marmolito-trigger" onclick="toggleMarmolito()">
-        <img src="robot-hjm.png.png" alt="Marmolito">
+    <div id="epsio-chat">
+        </div>
+    <div id="epsio-typing" style="display:none;">...</div>
+    <div class="epsio-input-area">
+        <input type="text" id="epsio-input" placeholder="Consultá sobre paneles EPS..." onkeypress="if(event.key === 'Enter') enviarEpsio()">
+        <button onclick="enviarEpsio()">➤</button>
     </div>
 </div>
-    
 
 
 </body>
+
 <script src="script.js"></script>
 
 </html>
